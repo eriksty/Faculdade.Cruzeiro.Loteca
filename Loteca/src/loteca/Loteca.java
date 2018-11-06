@@ -31,6 +31,7 @@ public class Loteca {
     public static int[] resultadoConcurso = new int[10];
     public static double valorDaLoteca = 0;
     public static int[] totalDeAcertoPlayer = new int[MAXIMO_APOSTADORES];
+    public static int[] jogadoresZero = new int[MAXIMO_APOSTADORES];
 
     /**
      * Método: carregarBanco()
@@ -374,7 +375,7 @@ public class Loteca {
         }
 
         for (int i = 0; i < totalApostadoresBanco; i++) {
-            JOptionPane.showMessageDialog(null, "Jogador: " + bancoApostadores[i].getNome() +"\nAcertou: " + totalDeAcertoPlayer[i], "Resultado", JOptionPane.QUESTION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Jogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "Resultado", JOptionPane.QUESTION_MESSAGE);
         }
     }
 
@@ -385,10 +386,23 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarJogosZerados() {
-        JOptionPane.showMessageDialog(null,
-                "Lógica do Método em Java\n\n"
-                + "apresentarJogosZerados()\n\n"
-                + "deve ser desenvolvido.");
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+            int count = 0;
+            int palpites[] = bancoApostadores[i].getPalpites();
+            for (int j = 0; j < 10; j++) {
+                if (resultadoConcurso[j] == palpites[j]) {
+                    count++;
+                }
+            }
+            totalDeAcertoPlayer[i] = count;
+        }
+
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+
+            if (totalDeAcertoPlayer[i] == 0) {
+                JOptionPane.showMessageDialog(null, "Jogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "Resultado", JOptionPane.QUESTION_MESSAGE);
+            }
+        }
     }
 
     /**
