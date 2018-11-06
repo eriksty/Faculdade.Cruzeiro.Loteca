@@ -30,6 +30,7 @@ public class Loteca {
     public static int totalApostadoresBanco = 0;
     public static int[] resultadoConcurso = new int[10];
     public static double valorDaLoteca = 0;
+    public static int[] totalDeAcertoPlayer = new int[MAXIMO_APOSTADORES];
 
     /**
      * Método: carregarBanco()
@@ -300,7 +301,7 @@ public class Loteca {
         for (int i = 0; i < resultadoConcurso.length; i++) {
             int jogo = i + 1;
             int valorJogo = Integer.parseInt((JOptionPane.showInputDialog("Digite o resultado do Jogo " + jogo
-                    + "\n\n 1-Para Time Mandante \n 0- Para Empate\n 3-Para Time Visitante")));
+                    + "\n\n 1-Para Time Mandante \n 0- Para Empate\n 2-Para Time Visitante")));
 
             if (valorJogo != 1 && valorJogo != 0 && valorJogo != 2) {
                 JOptionPane.showMessageDialog(null, "Válidos apenas os números 1 - 0 - 2\n TENTE NOVAMENTE!", "VALOR ERRADO", JOptionPane.INFORMATION_MESSAGE);
@@ -318,13 +319,12 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void cadastrarApostasDeJogos() {
-        Apostador apostador = new Apostador();
-
-        apostador.setNome(JOptionPane.showInputDialog(null, "Digite o Nome do Apostador", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
-        apostador.setDataDeNascimento((JOptionPane.showInputDialog(null, "Digite a Data de Nascimento do Apostador no formato ##/##/##", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE)));
-        apostador.setSexoBiologico(JOptionPane.showInputDialog(null, "Digite sexo do Apostador M-Masculino F-Feminino", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE).charAt(0));
-        apostador.setEmailDeContato(JOptionPane.showInputDialog(null, "Digite o Email do Apostador", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
-        apostador.setTelefoneDeContato(JOptionPane.showInputDialog(null, "Digite o Telefone do Apostador ####-####", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
+        bancoApostadores[totalApostadoresBanco] = new Apostador();
+        bancoApostadores[totalApostadoresBanco].setNome(JOptionPane.showInputDialog(null, "Digite o Nome do Apostador", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento((JOptionPane.showInputDialog(null, "Digite a Data de Nascimento do Apostador no formato ##/##/##", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE)));
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico(JOptionPane.showInputDialog(null, "Digite sexo do Apostador M-Masculino F-Feminino", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE).charAt(0));
+        bancoApostadores[totalApostadoresBanco].setEmailDeContato(JOptionPane.showInputDialog(null, "Digite o Email do Apostador", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
+        bancoApostadores[totalApostadoresBanco].setTelefoneDeContato(JOptionPane.showInputDialog(null, "Digite o Telefone do Apostador ####-####", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
 
         int palpitesApostador[] = new int[10];
 
@@ -340,11 +340,9 @@ public class Loteca {
                 palpitesApostador[i] = valorJogo;
             }
         }
-        apostador.setPalpites(palpitesApostador);
-
-        bancoApostadores[totalApostadoresBanco] = apostador;
+        bancoApostadores[totalApostadoresBanco].setPalpites(palpitesApostador);
         totalApostadoresBanco++;
-        JOptionPane.showMessageDialog(null,"CADASTRADO COM SUCESSO!!","APOSTADOR CADASTRADO!!",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "CADASTRADO COM SUCESSO!!", "APOSTADOR CADASTRADO!!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
@@ -354,10 +352,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarValoresTotalEPremios() {
-        JOptionPane.showMessageDialog(null,
-                "Lógica do Método em Java\n\n"
-                + "apresentarValoresTotalEPremios()\n\n"
-                + "deve ser desenvolvido.");
+        JOptionPane.showMessageDialog(null, "Valor da Loteca: " + valorDaLoteca, "", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
@@ -367,10 +362,20 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarAcertos() {
-        JOptionPane.showMessageDialog(null,
-                "Lógica do Método em Java\n\n"
-                + "apresentarAcertos()\n\n"
-                + "deve ser desenvolvido.");
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+            int count = 0;
+            int palpites[] = bancoApostadores[i].getPalpites();
+            for (int j = 0; j < 10; j++) {
+                if (resultadoConcurso[j] == palpites[j]) {
+                    count++;
+                }
+            }
+            totalDeAcertoPlayer[i] = count;
+        }
+
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+            JOptionPane.showMessageDialog(null, "Jogador: " + bancoApostadores[i].getNome() +"\nAcertou: " + totalDeAcertoPlayer[i], "Resultado", JOptionPane.QUESTION_MESSAGE);
+        }
     }
 
     /**
