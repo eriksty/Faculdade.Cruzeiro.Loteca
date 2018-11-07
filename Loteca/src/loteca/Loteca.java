@@ -396,12 +396,16 @@ public class Loteca {
             }
             totalDeAcertoPlayer[i] = count;
         }
-
+        int count = 0;
         for (int i = 0; i < totalApostadoresBanco; i++) {
 
             if (totalDeAcertoPlayer[i] == 0) {
-                JOptionPane.showMessageDialog(null, "Jogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "Resultado", JOptionPane.QUESTION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "!!ZEROU !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "0 ACERTOS", JOptionPane.QUESTION_MESSAGE);
+                count++;
             }
+        }
+        if (count == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum Jogador Zerou!", "Nínguem Zerou!", JOptionPane.QUESTION_MESSAGE);
         }
     }
 
@@ -412,10 +416,29 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarGanhadores10Acertos() {
-        JOptionPane.showMessageDialog(null,
-                "Lógica do Método em Java\n\n"
-                + "apresentarGanhadores10Acertos()\n\n"
-                + "deve ser desenvolvido.");
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+            int count = 0;
+            int palpites[] = bancoApostadores[i].getPalpites();
+            for (int j = 0; j < 10; j++) {
+                if (resultadoConcurso[j] == palpites[j]) {
+                    count++;
+                }
+            }
+            totalDeAcertoPlayer[i] = count;
+        }
+        
+        int count = 0;
+        
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+
+            if (totalDeAcertoPlayer[i] == 10) {
+                JOptionPane.showMessageDialog(null, "!! ACERTOU TUDO !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "10 ACERTOS", JOptionPane.QUESTION_MESSAGE);
+                count++;
+            }
+        }
+        if (count == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 10 Acertos!", "Nínguem Acertou 10!", JOptionPane.QUESTION_MESSAGE);
+        }
     }
 
     /**
@@ -425,10 +448,29 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarGanhadores9Acertos() {
-        JOptionPane.showMessageDialog(null,
-                "Lógica do Método em Java\n\n"
-                + "apresentarGanhadores9Acertos()\n\n"
-                + "deve ser desenvolvido.");
+       for (int i = 0; i < totalApostadoresBanco; i++) {
+            int count = 0;
+            int palpites[] = bancoApostadores[i].getPalpites();
+            for (int j = 0; j < 10; j++) {
+                if (resultadoConcurso[j] == palpites[j]) {
+                    count++;
+                }
+            }
+            totalDeAcertoPlayer[i] = count;
+        }
+        
+        int count = 0;
+        
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+
+            if (totalDeAcertoPlayer[i] == 9) {
+                JOptionPane.showMessageDialog(null, "!! ACERTOU 9 !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "9 ACERTOS", JOptionPane.QUESTION_MESSAGE);
+                count++;
+            }
+        }
+        if (count == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 9 Acertos!", "Nínguem Acertou 9!", JOptionPane.QUESTION_MESSAGE);
+        }
     }
 
     /**
