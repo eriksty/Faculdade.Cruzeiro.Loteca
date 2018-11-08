@@ -32,6 +32,7 @@ public class Loteca {
     public static double valorDaLoteca = 0;
     public static int[] totalDeAcertoPlayer = new int[MAXIMO_APOSTADORES];
     public static int[] jogadoresZero = new int[MAXIMO_APOSTADORES];
+    public static boolean resultadosCadastrado = false;
 
     /**
      * Método: carregarBanco()
@@ -299,6 +300,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void cadastrarResultadoConcurso() {
+        resultadosCadastrado = true;
         for (int i = 0; i < resultadoConcurso.length; i++) {
             int jogo = i + 1;
             int valorJogo = Integer.parseInt((JOptionPane.showInputDialog("Digite o resultado do Jogo " + jogo
@@ -426,9 +428,9 @@ public class Loteca {
             }
             totalDeAcertoPlayer[i] = count;
         }
-        
+
         int count = 0;
-        
+
         for (int i = 0; i < totalApostadoresBanco; i++) {
 
             if (totalDeAcertoPlayer[i] == 10) {
@@ -448,7 +450,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarGanhadores9Acertos() {
-       for (int i = 0; i < totalApostadoresBanco; i++) {
+        for (int i = 0; i < totalApostadoresBanco; i++) {
             int count = 0;
             int palpites[] = bancoApostadores[i].getPalpites();
             for (int j = 0; j < 10; j++) {
@@ -458,9 +460,9 @@ public class Loteca {
             }
             totalDeAcertoPlayer[i] = count;
         }
-        
+
         int count = 0;
-        
+
         for (int i = 0; i < totalApostadoresBanco; i++) {
 
             if (totalDeAcertoPlayer[i] == 9) {
@@ -519,10 +521,13 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void limparResultadosDoConcurso() {
-        JOptionPane.showMessageDialog(null,
-                "Lógica do Método em Java\n\n"
-                + "limparResultadosDoConcurso()\n\n"
-                + "deve ser desenvolvido.");
+        if (!resultadosCadastrado) {
+            JOptionPane.showMessageDialog(null, "Os Resultados não foram Cadastrados!", "Resultados não Cadastrados!", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "O Resultado do Concurso Loteca foram ZERADOS!", "RESULTADO ZERADO", JOptionPane.INFORMATION_MESSAGE);
+            resultadosCadastrado = false;
+        }
+
     }
 
     /**
