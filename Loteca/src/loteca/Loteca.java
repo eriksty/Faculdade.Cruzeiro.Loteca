@@ -5,6 +5,7 @@
  */
 package loteca;
 
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -325,7 +326,7 @@ public class Loteca {
         bancoApostadores[totalApostadoresBanco] = new Apostador();
         bancoApostadores[totalApostadoresBanco].setNome(JOptionPane.showInputDialog(null, "Digite o Nome do Apostador", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
         bancoApostadores[totalApostadoresBanco].setDataDeNascimento((JOptionPane.showInputDialog(null, "Digite a Data de Nascimento do Apostador no formato ##/##/##", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE)));
-        bancoApostadores[totalApostadoresBanco].setSexoBiologico(JOptionPane.showInputDialog(null, "Digite sexo do Apostador M-Masculino F-Feminino", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE).charAt(0));
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico(JOptionPane.showInputDialog(null, "Digite sexo do Apostador H-Homem  M-Mulher", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE).charAt(0));
         bancoApostadores[totalApostadoresBanco].setEmailDeContato(JOptionPane.showInputDialog(null, "Digite o Email do Apostador", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
         bancoApostadores[totalApostadoresBanco].setTelefoneDeContato(JOptionPane.showInputDialog(null, "Digite o Telefone do Apostador ####-####", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
 
@@ -482,10 +483,26 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarPercentualSexoBiologico() {
-        JOptionPane.showMessageDialog(null,
-                "Lógica do Método em Java\n\n"
-                + "apresentarPercentualSexoBiologico()\n\n"
-                + "deve ser desenvolvido.");
+        int countM = 0;
+        int countF = 0;
+        float totalPessoas = 0;
+
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+            String sexo = String.valueOf(bancoApostadores[i].getSexoBiologico());
+            if (sexo.equals("H") || sexo.equals("h")) {
+                countM++;
+            } else if (sexo.equals("M") || sexo.equals("m")) {
+                countF++;
+            }
+        }
+        totalPessoas = countM + countF;
+
+        String resultH = Float.toString(((countM * 100) / totalPessoas));
+        String resultM = Float.toString((((countF * 100) / totalPessoas)));
+
+        // System.out.println("Porcentagem de Homens: " + ;
+        System.out.println("Porcentagem de Homens: " + resultH.substring(0, 5) + "%");
+        System.out.println("Porcentagem de Mulheres: " + resultM.substring(0, 5) + "%");
     }
 
     /**
@@ -568,7 +585,11 @@ public class Loteca {
         if (!resultadosCadastrado) {
             JOptionPane.showMessageDialog(null, "Os Resultados não foram Cadastrados!", "Resultados não Cadastrados!", JOptionPane.INFORMATION_MESSAGE);
         } else {
+            for (int i = 0; i < resultadoConcurso.length; i++) {
+                resultadoConcurso[i] = -1;
+            }
             JOptionPane.showMessageDialog(null, "O Resultado do Concurso Loteca foram ZERADOS!", "RESULTADO ZERADO", JOptionPane.INFORMATION_MESSAGE);
+
             resultadosCadastrado = false;
         }
 
