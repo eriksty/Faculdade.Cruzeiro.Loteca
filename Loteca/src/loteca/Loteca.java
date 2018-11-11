@@ -45,8 +45,8 @@ public class Loteca {
     public static void carregarBanco() {
         // 1o Apostador
         bancoApostadores[totalApostadoresBanco] = new Apostador();
-        bancoApostadores[totalApostadoresBanco].setNome("Diego R. Dias");
-        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("09/10/1935");
+        bancoApostadores[totalApostadoresBanco].setNome("Carlos A. Dias");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("08/12/1993");
         bancoApostadores[totalApostadoresBanco].setSexoBiologico('H');
         bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(14) 4049-9273");
         bancoApostadores[totalApostadoresBanco].setEmailDeContato("diegoribeirodias@cuvox.com.br");
@@ -56,8 +56,8 @@ public class Loteca {
 
         // 2o Apostador	  
         bancoApostadores[totalApostadoresBanco] = new Apostador();
-        bancoApostadores[totalApostadoresBanco].setNome("Thiago C. Dias");
-        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("22/05/1962");
+        bancoApostadores[totalApostadoresBanco].setNome("Erik C. Dias");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("16/07/1999");
         bancoApostadores[totalApostadoresBanco].setSexoBiologico('H');
         bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(19) 7934-2108");
         bancoApostadores[totalApostadoresBanco].setEmailDeContato("tiagocorreiadias@superrito.com.br");
@@ -67,8 +67,8 @@ public class Loteca {
 
         // 3o Apostador
         bancoApostadores[totalApostadoresBanco] = new Apostador();
-        bancoApostadores[totalApostadoresBanco].setNome("Isabelle C. Pereira");
-        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("07/03/1982");
+        bancoApostadores[totalApostadoresBanco].setNome("Carlos A. Pereira");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("08/12/1993");
         bancoApostadores[totalApostadoresBanco].setSexoBiologico('M');
         bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 3052-5955");
         bancoApostadores[totalApostadoresBanco].setEmailDeContato("isabellecarvalhopereira@armyspy.com.br");
@@ -495,10 +495,54 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarPercentualTracoMarcante() {
-        JOptionPane.showMessageDialog(null,
-                "Lógica do Método em Java\n\n"
-                + "apresentarPercentualTracoMarcante()\n\n"
-                + "deve ser desenvolvido.");
+        int soma;
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+            soma = 0;
+            String D = bancoApostadores[i].getDataDeNascimento().substring(0, 2);
+            String M = bancoApostadores[i].getDataDeNascimento().substring(3, 5);
+            String A = bancoApostadores[i].getDataDeNascimento().substring(6, 10);
+            String N = D + M + A;
+
+            soma = soma + Integer.parseInt(String.valueOf(N.charAt(i - i))) + Integer.parseInt(String.valueOf(N.charAt((i - i) + 1)));
+            for (int j = 0; j < 6; j++) {
+                soma = soma + Integer.parseInt(String.valueOf(N.charAt(j + 2)));
+                if (soma >= 9) {
+                    soma = soma % 9;
+                }
+            }
+
+            switch (soma) {
+                case 0:
+                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Irresistível", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Impetuoso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Discreto", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "\raço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                case 4:
+                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Tímido", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                case 5:
+                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Paquerador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                case 6:
+                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Estudioso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                case 7:
+                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Sonhador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                case 8:
+                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     /**
