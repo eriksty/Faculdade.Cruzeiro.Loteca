@@ -357,6 +357,58 @@ public class Loteca {
      */
     public static void apresentarValoresTotalEPremios() {
         JOptionPane.showMessageDialog(null, "Valor da Loteca: " + valorDaLoteca, "", JOptionPane.INFORMATION_MESSAGE);
+
+        double quarenta = valorDaLoteca * 0.4;
+        double setenta = quarenta * 0.7;
+        double trinta = quarenta * 0.3;
+
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+            int count = 0;
+            int palpites[] = bancoApostadores[i].getPalpites();
+            for (int j = 0; j < 10; j++) {
+                if (resultadoConcurso[j] == palpites[j]) {
+                    count++;
+                }
+            }
+            totalDeAcertoPlayer[i] = count;
+        }
+
+        int count1 = 0;
+        int count2 = 0;
+
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+
+            if (totalDeAcertoPlayer[i] == 9) {
+                //JOptionPane.showMessageDialog(null, "!! ACERTOU TUDO !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "10 ACERTOS", JOptionPane.QUESTION_MESSAGE);
+                count1++;
+            } else if (totalDeAcertoPlayer[i] == 10) {
+                //JOptionPane.showMessageDialog(null, "!! ACERTOU TUDO !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "10 ACERTOS", JOptionPane.QUESTION_MESSAGE);
+                count2++;
+            }
+        }
+
+        if (count1 == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 9 Acertos!", "Nínguem Acertou 9!", JOptionPane.QUESTION_MESSAGE);
+        }
+
+        if (count2 == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 10 Acertos!", "Nínguem Acertou 10!", JOptionPane.QUESTION_MESSAGE);
+        }
+
+        if (count1 == 0 && count2 == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 10 ou 9 Acertos!", "Nínguem Acertou 10 ou 9!", JOptionPane.QUESTION_MESSAGE);
+        } else {
+
+            for (int i = 0; i < totalApostadoresBanco; i++) {
+                if (totalDeAcertoPlayer[i] == 9) {
+                    JOptionPane.showMessageDialog(null, "!! Teve 9 Acertos !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i] + "\nPrêmio: " + trinta / count1, "9 ACERTOS", JOptionPane.QUESTION_MESSAGE);
+
+                } else if (totalDeAcertoPlayer[i] == 10) {
+                    JOptionPane.showMessageDialog(null, "!! Teve 10 Acertos !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i] + "\nPrêmio: " + setenta / count2, "10 ACERTOS", JOptionPane.QUESTION_MESSAGE);
+                }
+            }
+        }
+
     }
 
     /**
@@ -498,11 +550,11 @@ public class Loteca {
         totalPessoas = countM + countF;
 
         String resultH = Float.toString(((countM * 100) / totalPessoas));
-        String resultM = Float.toString((((countF * 100) / totalPessoas)));
+        String resultM = Float.toString(((countF * 100) / totalPessoas));
 
-        // System.out.println("Porcentagem de Homens: " + ;
-        System.out.println("Porcentagem de Homens: " + resultH.substring(0, 5) + "%");
-        System.out.println("Porcentagem de Mulheres: " + resultM.substring(0, 5) + "%");
+        System.out.println("Porcentagem de Homens: " + resultH.substring(0, 4) + "%");
+        System.out.println("Porcentagem de Mulheres: " + resultM.substring(0, 4) + "%");
+        System.out.println("Total de Apostadores: " + totalPessoas);
     }
 
     /**
@@ -569,10 +621,73 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarTracoGanhadores10Acertos() {
-        JOptionPane.showMessageDialog(null,
-                "Lógica do Método em Java\n\n"
-                + "apresentarTracoGanhadores10Acertos()\n\n"
-                + "deve ser desenvolvido.");
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+            int count = 0;
+            int palpites[] = bancoApostadores[i].getPalpites();
+            for (int j = 0; j < 10; j++) {
+                if (resultadoConcurso[j] == palpites[j]) {
+                    count++;
+                }
+            }
+            totalDeAcertoPlayer[i] = count;
+        }
+
+        int count = 0;
+        int soma;
+        for (int i = 0; i < totalApostadoresBanco; i++) {
+            if (totalDeAcertoPlayer[i] == 10) {
+                count++;
+                soma = 0;
+
+                String D = bancoApostadores[i].getDataDeNascimento().substring(0, 2);
+                String M = bancoApostadores[i].getDataDeNascimento().substring(3, 5);
+                String A = bancoApostadores[i].getDataDeNascimento().substring(6, 10);
+                String N = D + M + A;
+
+                soma = soma + Integer.parseInt(String.valueOf(N.charAt(i - i))) + Integer.parseInt(String.valueOf(N.charAt((i - i) + 1)));
+                for (int j = 0; j < 6; j++) {
+                    soma = soma + Integer.parseInt(String.valueOf(N.charAt(j + 2)));
+                    if (soma >= 9) {
+                        soma = soma % 9;
+                    }
+                }
+
+                switch (soma) {
+                    case 0:
+                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Irresistível", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Impetuoso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Discreto", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "\raço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Tímido", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 5:
+                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Paquerador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 6:
+                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Estudioso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 7:
+                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Sonhador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 8:
+                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        if (count == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 10 Acertos!", "Nínguem Acertou 9!", JOptionPane.QUESTION_MESSAGE);
+        }
     }
 
     /**
