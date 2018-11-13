@@ -564,9 +564,16 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarPercentualTracoMarcante() {
-        int soma;
-        for (int i = 0; i < totalApostadoresBanco; i++) {
-            soma = 0;
+        double[][] traco = new double[9][2];
+        String msg = "";
+
+        for (int i = 0; i < 9; i++) {
+            traco[i][0] = i;
+        }
+
+        //int soma;
+        //for (int i = 0; i < totalApostadoresBanco; i++) {
+        /*soma = 0;
             String D = bancoApostadores[i].getDataDeNascimento().substring(0, 2);
             String M = bancoApostadores[i].getDataDeNascimento().substring(3, 5);
             String A = bancoApostadores[i].getDataDeNascimento().substring(6, 10);
@@ -578,41 +585,86 @@ public class Loteca {
                 if (soma >= 9) {
                     soma = soma % 9;
                 }
-            }
-
-            switch (soma) {
+            }*/
+        for (int cont = 0; cont < totalApostadoresBanco; cont++) {
+            switch (bancoApostadores[cont].tracoMarcantePersonalidade()) {
                 case 0:
-                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Irresistível", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    traco[0][1]++;
+                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Irresistível", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 1:
-                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Impetuoso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    traco[1][1]++;
+                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Impetuoso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 2:
-                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Discreto", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    traco[2][1]++;
+                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Discreto", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 3:
-                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "\raço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    traco[3][1]++;
+                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "\raço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 4:
-                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Tímido", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    traco[4][1]++;
+                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Tímido", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 5:
-                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Paquerador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    traco[5][1]++;
+                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Paquerador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 6:
-                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Estudioso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    traco[6][1]++;
+                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Estudioso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 7:
-                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Sonhador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                    traco[7][1]++;
+                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Sonhador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 8:
-                    JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                default:
+                    traco[8][1]++;
+                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
             }
         }
+
+        for (int k = 0; k < traco.length; k++) {
+            for (int j = k; j < traco.length; j++) {
+                if (traco[k][1] > traco[j][1]) {
+                    double[] vetorTemporario = traco[k];
+                    traco[k] = traco[j];
+                    traco[j] = vetorTemporario;
+                }
+            }
+        }
+
+        /*for (int x = 0; x < 9; x++) {
+            traco[x][1] = (traco[x][1] / totalApostadoresBanco) * 100;
+        }*/
+
+        for (int x = 0; x < 9; x++) {
+            if (traco[x][0] == 0) {
+                msg = msg + "Irresistível: " + traco[x][1] + "%\n";
+            } else if (traco[x][0] == 1) {
+                msg = msg + "Impetuoso: " + traco[x][1] + "%\n";
+            } else if (traco[x][0] == 2) {
+                msg = msg + "Discreto: " + traco[x][1] + "%\n";
+            } else if (traco[x][0] == 3) {
+                msg = msg + "Amoroso: " + traco[x][1] + "%\n";
+            } else if (traco[x][0] == 4) {
+                msg = msg + "Tímido: " + traco[x][1] + "%\n";
+            } else if (traco[x][0] == 5) {
+                msg = msg + "Paquerador: " + traco[x][1] + "%\n";
+            } else if (traco[x][0] == 6) {
+                msg = msg + "Estudioso: " + traco[x][1] + "%\n";
+            } else if (traco[x][0] == 7) {
+                msg = msg + "Sonhador: " + traco[x][1] + "%\n";
+            } else if (traco[x][0] == 8) {
+                msg = msg + "Charmoso: " + traco[x][1] + "%\n";
+            }
+        }
+        JOptionPane.showMessageDialog(null, msg);
     }
+    //}
 
     /**
      * Método: apresentarTracoGanhadores10Acertos()
