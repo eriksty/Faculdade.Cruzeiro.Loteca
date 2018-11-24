@@ -311,6 +311,7 @@ public class Loteca {
                 resultadoConcurso[i] = valorJogo;
             }
         }
+        JOptionPane.showMessageDialog(null, "Resultados Cadastrados com Sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
@@ -549,9 +550,9 @@ public class Loteca {
         String resultH = Float.toString(((countM * 100) / totalPessoas));
         String resultM = Float.toString(((countF * 100) / totalPessoas));
 
-        System.out.println("Porcentagem de Homens: " + resultH.substring(0, 4) + "%");
-        System.out.println("Porcentagem de Mulheres: " + resultM.substring(0, 4) + "%");
-        System.out.println("Total de Apostadores: " + totalPessoas);
+        JOptionPane.showMessageDialog(null, "Porcentagem de Homens: " + resultH.substring(0, 4) + "%", "Homens", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Porcentagem de Mulheres: " + resultM.substring(0, 4) + "%", "Mulheres", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Total de Apostadores: " + totalPessoas, "Total", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
@@ -568,58 +569,34 @@ public class Loteca {
             traco[i][0] = i;
         }
 
-        //int soma;
-        //for (int i = 0; i < totalApostadoresBanco; i++) {
-        /*soma = 0;
-            String D = bancoApostadores[i].getDataDeNascimento().substring(0, 2);
-            String M = bancoApostadores[i].getDataDeNascimento().substring(3, 5);
-            String A = bancoApostadores[i].getDataDeNascimento().substring(6, 10);
-            String N = D + M + A;
-
-            soma = soma + Integer.parseInt(String.valueOf(N.charAt(i - i))) + Integer.parseInt(String.valueOf(N.charAt((i - i) + 1)));
-            for (int j = 0; j < 6; j++) {
-                soma = soma + Integer.parseInt(String.valueOf(N.charAt(j + 2)));
-                if (soma >= 9) {
-                    soma = soma % 9;
-                }
-            }*/
         for (int cont = 0; cont < totalApostadoresBanco; cont++) {
             switch (bancoApostadores[cont].tracoMarcantePersonalidade()) {
                 case 0:
                     traco[0][1]++;
-                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Irresistível", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 1:
                     traco[1][1]++;
-                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Impetuoso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 2:
                     traco[2][1]++;
-                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Discreto", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 3:
                     traco[3][1]++;
-                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "\raço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 4:
                     traco[4][1]++;
-                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Tímido", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 5:
                     traco[5][1]++;
-                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Paquerador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 6:
                     traco[6][1]++;
-                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Estudioso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 7:
                     traco[7][1]++;
-                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Sonhador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 8:
                     traco[8][1]++;
-                    //JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
                     break;
             }
         }
@@ -634,9 +611,6 @@ public class Loteca {
             }
         }
 
-        /*for (int x = 0; x < 9; x++) {
-            traco[x][1] = (traco[x][1] / totalApostadoresBanco) * 100;
-        }*/
         for (int x = 0; x < 9; x++) {
             if (traco[x][0] == 0) {
                 msg = msg + "Irresistível: " + traco[x][1] + "%\n";
@@ -772,7 +746,7 @@ public class Loteca {
                 = JOptionPane.showConfirmDialog(null, "Deseja realmente finalizar o sistema?",
                         "Finalizar Sistema",
                         JOptionPane.YES_NO_OPTION);
-
+        
         // Se resposta fornecida for igual a YES
         if (resposta == JOptionPane.YES_OPTION) {
             return TERMINA_SISTEMA;
