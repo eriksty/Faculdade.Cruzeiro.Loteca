@@ -286,12 +286,9 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void fornecerValorXDaLoteca() {
-        valorDaLoteca = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da loteca!", "valor", JOptionPane.QUESTION_MESSAGE));
-        /*JOptionPane.showMessageDialog(null, 
-			  "Lógica do Método em Java\n\n"
-                                  + "fornecerValorXDaLoteca()\n\n"
-                                  + "deve ser desenvolvido.");  
-         */
+        valorDaLoteca = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da loteca!", "Valor Lotece", JOptionPane.QUESTION_MESSAGE));
+
+        JOptionPane.showMessageDialog(null, "! VALOR DA LOTECA CADASTRADO !", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
@@ -640,7 +637,6 @@ public class Loteca {
         /*for (int x = 0; x < 9; x++) {
             traco[x][1] = (traco[x][1] / totalApostadoresBanco) * 100;
         }*/
-
         for (int x = 0; x < 9; x++) {
             if (traco[x][0] == 0) {
                 msg = msg + "Irresistível: " + traco[x][1] + "%\n";
