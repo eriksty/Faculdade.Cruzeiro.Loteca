@@ -389,9 +389,8 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void fornecerValorXDaLoteca() {
-        //cadastra o valor da loteca, guardando na variavel valorDaLoteca
+        //Cadastra o valor da loteca, guardando na variavel valorDaLoteca
         valorDaLoteca = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da loteca!", "Valor Lotece", JOptionPane.QUESTION_MESSAGE));
-
         JOptionPane.showMessageDialog(null, "! VALOR DA LOTECA CADASTRADO !", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -402,14 +401,14 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void cadastrarResultadoConcurso() {
-        //variavel criada para ser reutilizada no metodo limpar valores.
+        //Variável criada para ser reutilizada no metodo limpar valores.
         resultadosCadastrado = true;
-        //cadastra os resultados dos jogos, existe uma verificação que obrigada o jogador digitar apenas resultados válidos
+        //Cadastra os resultados dos jogos.
         for (int i = 0; i < resultadoConcurso.length; i++) {
             int jogo = i + 1;
             int valorJogo = Integer.parseInt((JOptionPane.showInputDialog("Digite o resultado do Jogo " + jogo
                     + "\n\n 1-Para Time Mandante \n 0- Para Empate\n 2-Para Time Visitante")));
-
+            //Verificação que obrigada o jogador digitar apenas resultados válidos.
             if (valorJogo != 1 && valorJogo != 0 && valorJogo != 2) {
                 JOptionPane.showMessageDialog(null, "Válidos apenas os números 1 - 0 - 2\n TENTE NOVAMENTE!", "VALOR ERRADO", JOptionPane.INFORMATION_MESSAGE);
                 i = i - 1;
@@ -428,8 +427,8 @@ public class Loteca {
      */
     public static void cadastrarApostasDeJogos() {
 
-        /*instancia da class apostador, estou utilizando os gatters e setters 
-        disponibilizado pelo profressor para dar valor os atributos do professor.
+        /*Instância da class apostador, o método utiliza os gatters e setters 
+        disponibilizado pelo profressor para dar valor os atributos do Apostador.
          */
         bancoApostadores[totalApostadoresBanco] = new Apostador();
         bancoApostadores[totalApostadoresBanco].setNome(JOptionPane.showInputDialog(null, "Digite o Nome do Apostador", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
@@ -439,14 +438,13 @@ public class Loteca {
         bancoApostadores[totalApostadoresBanco].setTelefoneDeContato(JOptionPane.showInputDialog(null, "Digite o Telefone do Apostador ####-####", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
         int palpitesApostador[] = new int[10];
 
-        /*Disponibiliza para o usuário o cadastramento dos palpites do novo jogador,
-        novamene obrigado o usuário digitar apenas valores corretos.
+        /*Disponibiliza para o usuário o cadastramento dos palpites do jogador.
          */
         for (int i = 0; i < palpitesApostador.length; i++) {
             int jogo = i + 1;
             int valorJogo = Integer.parseInt((JOptionPane.showInputDialog("Digite o resultado do Jogo " + jogo
                     + "\n\n 1-Para Time Mandante \n 0- Para Empate\n 2-Para Time Visitante")));
-
+            //Obriga o usuário a digitar o valor correto, apenas 1 , 0 ou 2;
             if (valorJogo != 1 && valorJogo != 0 && valorJogo != 2) {
                 JOptionPane.showMessageDialog(null, "Válidos apenas os números 1 - 0 - 2\n TENTE NOVAMENTE!", "VALOR ERRADO", JOptionPane.INFORMATION_MESSAGE);
                 i = i - 1;
@@ -454,7 +452,7 @@ public class Loteca {
                 palpitesApostador[i] = valorJogo;
             }
         }
-        //seta os palpites no vetor banco.
+        //Seta os palpites no vetor banco.
         bancoApostadores[totalApostadoresBanco].setPalpites(palpitesApostador);
         totalApostadoresBanco++;
         JOptionPane.showMessageDialog(null, "CADASTRADO COM SUCESSO!!", "APOSTADOR CADASTRADO!!", JOptionPane.INFORMATION_MESSAGE);
@@ -473,7 +471,7 @@ public class Loteca {
         double setenta = quarenta * 0.7;
         double trinta = quarenta * 0.3;
 
-        //Pega os acertos dos jogadores
+        //Pega os acertos dos jogadores, guardando no vetor "palpites";
         for (int i = 0; i < totalApostadoresBanco; i++) {
             int count = 0;
             int palpites[] = bancoApostadores[i].getPalpites();
@@ -488,33 +486,33 @@ public class Loteca {
         int count1 = 0;
         int count2 = 0;
 
-        //
+        /*Armazena no count1 os jogadores que tiveram 9 acertos,
+        e armazena no count2 os jogadoresq que tiveram 10 acertos.*/
         for (int i = 0; i < totalApostadoresBanco; i++) {
             if (totalDeAcertoPlayer[i] == 9) {
-                //JOptionPane.showMessageDialog(null, "!! ACERTOU TUDO !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "10 ACERTOS", JOptionPane.QUESTION_MESSAGE);
                 count1++;
             } else if (totalDeAcertoPlayer[i] == 10) {
-                //JOptionPane.showMessageDialog(null, "!! ACERTOU TUDO !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "10 ACERTOS", JOptionPane.QUESTION_MESSAGE);
                 count2++;
             }
         }
 
+        //Informa ao usuário se nenhum jogador acertar 9.
         if (count1 == 0) {
             JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 9 Acertos!", "Nínguem Acertou 9!", JOptionPane.QUESTION_MESSAGE);
         }
-
+        //Informa ao usuário se nenhum jogador acertar 10.
         if (count2 == 0) {
             JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 10 Acertos!", "Nínguem Acertou 10!", JOptionPane.QUESTION_MESSAGE);
         }
-
+        //Informa ao usuário se nenhum jogador acertar 10 e 9. 
         if (count1 == 0 && count2 == 0) {
             JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 10 ou 9 Acertos!", "Nínguem Acertou 10 ou 9!", JOptionPane.QUESTION_MESSAGE);
         } else {
-
+            /*Verifica se o jogador teve 9 ou 10 acertos, 
+            caso ele tenha 9 ou 10, ele será apresentado para o usuário. */
             for (int i = 0; i < totalApostadoresBanco; i++) {
                 if (totalDeAcertoPlayer[i] == 9) {
                     JOptionPane.showMessageDialog(null, "!! Teve 9 Acertos !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i] + "\nPrêmio: " + trinta / count1, "9 ACERTOS", JOptionPane.QUESTION_MESSAGE);
-
                 } else if (totalDeAcertoPlayer[i] == 10) {
                     JOptionPane.showMessageDialog(null, "!! Teve 10 Acertos !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i] + "\nPrêmio: " + setenta / count2, "10 ACERTOS", JOptionPane.QUESTION_MESSAGE);
                 }
@@ -600,10 +598,10 @@ public class Loteca {
         }
 
         int count = 0;
-        
-        
+
         /* Pecorre o vetor Total totalApostadoresBanco e compara os resultados 
-        utilizando o vetor totalDeAcertoPlayer, ambos utilziando a variavel/contador i
+        utilizando o vetor totalDeAcertoPlayer, ambos utilziando a variavel/contador i 
+        e verifica se o apostador teve 9 acertos.
          */
         for (int i = 0; i < totalApostadoresBanco; i++) {
             if (totalDeAcertoPlayer[i] == 10) {
@@ -611,7 +609,8 @@ public class Loteca {
                 count++;
             }
         }
-        //verifica se todos o jogadores não acertaram 10;
+
+        //Verifica se todos o jogadores não acertaram 10;
         if (count == 0) {
             JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 10 Acertos!", "Nínguem Acertou 10!", JOptionPane.QUESTION_MESSAGE);
         }
@@ -624,7 +623,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarGanhadores9Acertos() {
-        //Pega os p
+        //Pega a quantidade de acertos de cada apostador.
         for (int i = 0; i < totalApostadoresBanco; i++) {
             int count = 0;
             int palpites[] = bancoApostadores[i].getPalpites();
@@ -637,14 +636,14 @@ public class Loteca {
         }
 
         int count = 0;
-
+        //Verifica se o apostador teve 9 acertos.
         for (int i = 0; i < totalApostadoresBanco; i++) {
-
             if (totalDeAcertoPlayer[i] == 9) {
                 JOptionPane.showMessageDialog(null, "!! ACERTOU 9 !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "9 ACERTOS", JOptionPane.QUESTION_MESSAGE);
                 count++;
             }
         }
+        //Verifica se todos o jogadores não acertaram 9;
         if (count == 0) {
             JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 9 Acertos!", "Nínguem Acertou 9!", JOptionPane.QUESTION_MESSAGE);
         }
@@ -660,7 +659,7 @@ public class Loteca {
         int countM = 0;
         int countF = 0;
         float totalPessoas = 0;
-
+        //Conta a quantidade de pessoas Masculina e Feminina, armazenando os homens no countM e as mulheres no countF.
         for (int i = 0; i < totalApostadoresBanco; i++) {
             String sexo = String.valueOf(bancoApostadores[i].getSexoBiologico());
             if (sexo.equals("H") || sexo.equals("h")) {
@@ -669,11 +668,10 @@ public class Loteca {
                 countF++;
             }
         }
+        //Calcula a quantidade de homens e mulheres, e apresenta para o usuário.
         totalPessoas = countM + countF;
-
         String resultH = Float.toString(((countM * 100) / totalPessoas));
         String resultM = Float.toString(((countF * 100) / totalPessoas));
-
         JOptionPane.showMessageDialog(null, "Porcentagem de Homens: " + resultH.substring(0, 4) + "%", "Homens", JOptionPane.INFORMATION_MESSAGE);
         JOptionPane.showMessageDialog(null, "Porcentagem de Mulheres: " + resultM.substring(0, 4) + "%", "Mulheres", JOptionPane.INFORMATION_MESSAGE);
         JOptionPane.showMessageDialog(null, "Total de Apostadores: " + totalPessoas, "Total", JOptionPane.INFORMATION_MESSAGE);
@@ -695,7 +693,8 @@ public class Loteca {
             traco[i][0] = i;
         }
 
-        //Adicionar quantidade de pessoas com detemirnado traço na segunda coluna da matriz  "traco".
+        /* Adiciona quantidade de pessoas com detemirnado traço na segunda coluna da matriz  "traco", 
+        utiliza o metodo, 'tracoMarcantePersonalidade'*/
         for (int cont = 0; cont < totalApostadoresBanco; cont++) {
             switch (bancoApostadores[cont].tracoMarcantePersonalidade()) {
                 case 0:
@@ -728,7 +727,7 @@ public class Loteca {
             }
         }
 
-        //ordenar a matriz em ordem crescente.
+        //Ordena a matriz em ordem crescente.
         for (int k = 0; k < traco.length; k++) {
             for (int j = k; j < traco.length; j++) {
                 if (traco[k][1] > traco[j][1]) {
@@ -739,7 +738,7 @@ public class Loteca {
             }
         }
 
-        //armazenar a menssagem com os traços marcantes.
+        //Armazena a menssagem com os traços marcantes.
         for (int x = 0; x < 9; x++) {
             if (traco[x][0] == 0) {
                 msg = msg + "Irresistível: " + traco[x][1] + "%\n";
@@ -772,7 +771,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarTracoGanhadores10Acertos() {
-        //pegar as apostas do jogadores
+        //Pegar as apostas do jogadores
         for (int i = 0; i < totalApostadoresBanco; i++) {
             int count = 0;
             int palpites[] = bancoApostadores[i].getPalpites();
@@ -787,14 +786,14 @@ public class Loteca {
         int count = 0;
         int soma;
         int ganhadores10Acertos = 0;
-        //pegar quantidade de jogadores com 10 acertos
+        //Pegar quantidade de jogadores com 10 acertos.
         for (int i = 0; i < totalApostadoresBanco; i++) {
             if (totalDeAcertoPlayer[i] == 10) {
                 ganhadores10Acertos++;
             }
         }
 
-        //verificar se existe jogadores com 10 acertos
+        //Verificar se existe jogadores com 10 acertos.
         if (ganhadores10Acertos != 0) {
             double[][] traco = new double[9][2];
             String msg = "";
@@ -837,7 +836,7 @@ public class Loteca {
                 }
             }
 
-            //ordenar a matriz em ordem decrescente.
+            //Ordenar a matriz em ordem decrescente.
             for (int k = 0; k < traco.length; k++) {
                 for (int j = k; j < traco.length; j++) {
                     if (traco[k][1] < traco[j][1]) {
@@ -848,7 +847,7 @@ public class Loteca {
                 }
             }
 
-            //armazenar a menssagem com os traços marcantes.
+            //Armazenar a menssagem com os traços marcantes.
             for (int x = 0; x < 9; x++) {
                 if (traco[x][0] == 0) {
                     msg = msg + "Irresistível: " + traco[x][1] + "%\n";
@@ -885,9 +884,11 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void limparResultadosDoConcurso() {
+        //Verifica se os resultados do concurso foram cadastrados.
         if (!resultadosCadastrado) {
             JOptionPane.showMessageDialog(null, "Os Resultados não foram Cadastrados!", "Resultados não Cadastrados!", JOptionPane.INFORMATION_MESSAGE);
         } else {
+            //Zeram todos os resultados dos jogos.
             for (int i = 0; i < resultadoConcurso.length; i++) {
                 resultadoConcurso[i] = -1;
             }
@@ -908,12 +909,12 @@ public class Loteca {
      * retorna a constante NAO_TERMINA_SISTEMA.
      */
     public static int verificarTerminoDoSistema() {
-        int resposta
-                = JOptionPane.showConfirmDialog(null, "Deseja realmente finalizar o sistema?",
-                        "Finalizar Sistema",
-                        JOptionPane.YES_NO_OPTION);
+        //Apresenta uma mensagem para o usuario, perguntando se ele deseja finalizar o programa.
+        int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente finalizar o sistema?",
+                "Finalizar Sistema",
+                JOptionPane.YES_NO_OPTION);
 
-        // Se resposta fornecida for igual a YES
+        // Se resposta fornecida for igual a YES.
         if (resposta == JOptionPane.YES_OPTION) {
             return TERMINA_SISTEMA;
         } else {
