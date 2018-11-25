@@ -13,6 +13,11 @@ import javax.swing.JOptionPane;
  * @author Ivan Carlos Alcântara de Oliveira
  * @author INSERIR AQUI OS NOMES DOS COMPONENTES DO GRUPO com seus Registros de
  * Matrícula (um por linha)
+ * @author Michael Douglas	RGM: 1908513-3
+ * @author Erik Coelho Gama	RGM: 1947384-2
+ * @author Carlos Ivan Uemura Rodrigues	RGM: 1947485-7
+ * @authorIgor George Alves	RGM: 1948524-7
+ *
  * @version 0.5 - 17/10/2018
  *
  */
@@ -46,8 +51,8 @@ public class Loteca {
     public static void carregarBanco() {
         // 1o Apostador
         bancoApostadores[totalApostadoresBanco] = new Apostador();
-        bancoApostadores[totalApostadoresBanco].setNome("Carlos A. Dias");
-        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("08/12/1993");
+        bancoApostadores[totalApostadoresBanco].setNome("Diego R. Dias");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("09/10/1935");
         bancoApostadores[totalApostadoresBanco].setSexoBiologico('H');
         bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(14) 4049-9273");
         bancoApostadores[totalApostadoresBanco].setEmailDeContato("diegoribeirodias@cuvox.com.br");
@@ -57,8 +62,8 @@ public class Loteca {
 
         // 2o Apostador	  
         bancoApostadores[totalApostadoresBanco] = new Apostador();
-        bancoApostadores[totalApostadoresBanco].setNome("Erik C. Dias");
-        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("16/07/1999");
+        bancoApostadores[totalApostadoresBanco].setNome("Thiago C. Dias");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("22/05/1962");
         bancoApostadores[totalApostadoresBanco].setSexoBiologico('H');
         bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(19) 7934-2108");
         bancoApostadores[totalApostadoresBanco].setEmailDeContato("tiagocorreiadias@superrito.com.br");
@@ -68,8 +73,8 @@ public class Loteca {
 
         // 3o Apostador
         bancoApostadores[totalApostadoresBanco] = new Apostador();
-        bancoApostadores[totalApostadoresBanco].setNome("Carlos A. Pereira");
-        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("08/12/1993");
+        bancoApostadores[totalApostadoresBanco].setNome("Isabelle C. Pereira");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("07/03/1982");
         bancoApostadores[totalApostadoresBanco].setSexoBiologico('M');
         bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 3052-5955");
         bancoApostadores[totalApostadoresBanco].setEmailDeContato("isabellecarvalhopereira@armyspy.com.br");
@@ -155,6 +160,104 @@ public class Loteca {
         totalApostadoresBanco++;
 
         // Adicionar os outros Apostadores solicitados a partir daqui
+        // 11o Apostador 
+        bancoApostadores[totalApostadoresBanco] = new Apostador();
+        bancoApostadores[totalApostadoresBanco].setNome("Erik Coelho Gama");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("16/07/1999");
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico('H');
+        bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 4636-4391");
+        bancoApostadores[totalApostadoresBanco].setEmailDeContato("erik.j07@hotmail.com");
+        int palpites_apostador_11[] = {1, 0, 2, 2, 1, 0, 1, 2, 0, 1};
+        bancoApostadores[totalApostadoresBanco].setPalpites(palpites_apostador_11);
+        totalApostadoresBanco++;
+
+        // 12o Apostador 
+        bancoApostadores[totalApostadoresBanco] = new Apostador();
+        bancoApostadores[totalApostadoresBanco].setNome("Igor George Alves");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("03/01/1994");
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico('H');
+        bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 95485-3214");
+        bancoApostadores[totalApostadoresBanco].setEmailDeContato("igorgeorge.a@hotmail.com");
+        int palpites_apostador_12[] = {1, 0, 1, 2, 1, 0, 2, 1, 2, 1};
+        bancoApostadores[totalApostadoresBanco].setPalpites(palpites_apostador_12);
+        totalApostadoresBanco++;
+
+        // 13o Apostador 
+        bancoApostadores[totalApostadoresBanco] = new Apostador();
+        bancoApostadores[totalApostadoresBanco].setNome("Carlos Ivan Uemura");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("08/12/1993");
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico('H');
+        bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 94826-3557");
+        bancoApostadores[totalApostadoresBanco].setEmailDeContato("uemurarodrigues@hotmail.com");
+        int palpites_apostador_13[] = {0, 1, 0, 1, 2, 2, 0, 0, 2, 1};
+        bancoApostadores[totalApostadoresBanco].setPalpites(palpites_apostador_13);
+        totalApostadoresBanco++;
+
+        // 14o Apostador 
+        bancoApostadores[totalApostadoresBanco] = new Apostador();
+        bancoApostadores[totalApostadoresBanco].setNome("Michael Douglas");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("11/02/1999");
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico('M');
+        bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 95959-9579");
+        bancoApostadores[totalApostadoresBanco].setEmailDeContato("doug12@hotmail.com");
+        int palpites_apostador_14[] = {0, 0, 0, 1, 1, 2, 2, 0, 1, 2};
+        bancoApostadores[totalApostadoresBanco].setPalpites(palpites_apostador_14);
+        totalApostadoresBanco++;
+
+        // 15o Apostador 
+        bancoApostadores[totalApostadoresBanco] = new Apostador();
+        bancoApostadores[totalApostadoresBanco].setNome("Guilherme Paulo Ferreira");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("04/02/2000");
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico('H');
+        bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 97137-7126");
+        bancoApostadores[totalApostadoresBanco].setEmailDeContato("gui.ferreira.42@gmail.com");
+        int palpites_apostador_15[] = {1, 2, 0, 1, 1, 2, 2, 1, 1, 0};
+        bancoApostadores[totalApostadoresBanco].setPalpites(palpites_apostador_15);
+        totalApostadoresBanco++;
+
+        // 16o Apostador 
+        bancoApostadores[totalApostadoresBanco] = new Apostador();
+        bancoApostadores[totalApostadoresBanco].setNome("Carlos Gabriel Mussato");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("27/02/2000");
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico('H');
+        bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 95959-9579");
+        bancoApostadores[totalApostadoresBanco].setEmailDeContato("amanda_olv@hotmail.com.br");
+        int palpites_apostador_16[] = {0, 0, 0, 1, 1, 2, 2, 0, 1, 2};
+        bancoApostadores[totalApostadoresBanco].setPalpites(palpites_apostador_16);
+        totalApostadoresBanco++;
+
+        // 18o Apostador 
+        bancoApostadores[totalApostadoresBanco] = new Apostador();
+        bancoApostadores[totalApostadoresBanco].setNome("Marcos Roberto do Santos");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("26/07/2000");
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico('H');
+        bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 91598-3485");
+        bancoApostadores[totalApostadoresBanco].setEmailDeContato("marcos.santos@hotmail.com");
+        int palpites_apostador_18[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        bancoApostadores[totalApostadoresBanco].setPalpites(palpites_apostador_18);
+        totalApostadoresBanco++;
+
+        // 19o Apostador 
+        bancoApostadores[totalApostadoresBanco] = new Apostador();
+        bancoApostadores[totalApostadoresBanco].setNome("Dafne Lopes Calazans");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("26/07/2000");
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico('M');
+        bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 91598-3485");
+        bancoApostadores[totalApostadoresBanco].setEmailDeContato("dafne.lopes@hotmail.com");
+        int palpites_apostador_19[] = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
+        bancoApostadores[totalApostadoresBanco].setPalpites(palpites_apostador_19);
+        totalApostadoresBanco++;
+
+        // 20o Apostador 
+        bancoApostadores[totalApostadoresBanco] = new Apostador();
+        bancoApostadores[totalApostadoresBanco].setNome("Leticia Macedo");
+        bancoApostadores[totalApostadoresBanco].setDataDeNascimento("26/08/2000");
+        bancoApostadores[totalApostadoresBanco].setSexoBiologico('M');
+        bancoApostadores[totalApostadoresBanco].setTelefoneDeContato("(11) 99146-7532");
+        bancoApostadores[totalApostadoresBanco].setEmailDeContato("leticia.macedo@hotmail.com");
+        int palpites_apostador_20[] = {1, 0, 2, 1, 0, 2, 1, 0, 2, 1};
+        bancoApostadores[totalApostadoresBanco].setPalpites(palpites_apostador_20);
+        totalApostadoresBanco++;
     }
 
     /**
@@ -286,6 +389,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void fornecerValorXDaLoteca() {
+        //cadastra o valor da loteca, guardando na variavel valorDaLoteca
         valorDaLoteca = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da loteca!", "Valor Lotece", JOptionPane.QUESTION_MESSAGE));
 
         JOptionPane.showMessageDialog(null, "! VALOR DA LOTECA CADASTRADO !", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
@@ -298,7 +402,9 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void cadastrarResultadoConcurso() {
+        //variavel criada para ser reutilizada no metodo limpar valores.
         resultadosCadastrado = true;
+        //cadastra os resultados dos jogos, existe uma verificação que obrigada o jogador digitar apenas resultados válidos
         for (int i = 0; i < resultadoConcurso.length; i++) {
             int jogo = i + 1;
             int valorJogo = Integer.parseInt((JOptionPane.showInputDialog("Digite o resultado do Jogo " + jogo
@@ -321,15 +427,21 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void cadastrarApostasDeJogos() {
+
+        /*instancia da class apostador, estou utilizando os gatters e setters 
+        disponibilizado pelo profressor para dar valor os atributos do professor.
+         */
         bancoApostadores[totalApostadoresBanco] = new Apostador();
         bancoApostadores[totalApostadoresBanco].setNome(JOptionPane.showInputDialog(null, "Digite o Nome do Apostador", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
         bancoApostadores[totalApostadoresBanco].setDataDeNascimento((JOptionPane.showInputDialog(null, "Digite a Data de Nascimento do Apostador no formato ##/##/##", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE)));
         bancoApostadores[totalApostadoresBanco].setSexoBiologico(JOptionPane.showInputDialog(null, "Digite sexo do Apostador H-Homem  M-Mulher", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE).charAt(0));
         bancoApostadores[totalApostadoresBanco].setEmailDeContato(JOptionPane.showInputDialog(null, "Digite o Email do Apostador", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
         bancoApostadores[totalApostadoresBanco].setTelefoneDeContato(JOptionPane.showInputDialog(null, "Digite o Telefone do Apostador ####-####", "Cadastro do Apostador", JOptionPane.QUESTION_MESSAGE));
-
         int palpitesApostador[] = new int[10];
 
+        /*Disponibiliza para o usuário o cadastramento dos palpites do novo jogador,
+        novamene obrigado o usuário digitar apenas valores corretos.
+         */
         for (int i = 0; i < palpitesApostador.length; i++) {
             int jogo = i + 1;
             int valorJogo = Integer.parseInt((JOptionPane.showInputDialog("Digite o resultado do Jogo " + jogo
@@ -342,6 +454,7 @@ public class Loteca {
                 palpitesApostador[i] = valorJogo;
             }
         }
+        //seta os palpites no vetor banco.
         bancoApostadores[totalApostadoresBanco].setPalpites(palpitesApostador);
         totalApostadoresBanco++;
         JOptionPane.showMessageDialog(null, "CADASTRADO COM SUCESSO!!", "APOSTADOR CADASTRADO!!", JOptionPane.INFORMATION_MESSAGE);
@@ -355,11 +468,12 @@ public class Loteca {
      */
     public static void apresentarValoresTotalEPremios() {
         JOptionPane.showMessageDialog(null, "Valor da Loteca: " + valorDaLoteca, "", JOptionPane.INFORMATION_MESSAGE);
-
+        //Divide o valor do concurso loteca de acordo com regra do professor.
         double quarenta = valorDaLoteca * 0.4;
         double setenta = quarenta * 0.7;
         double trinta = quarenta * 0.3;
 
+        //Pega os acertos dos jogadores
         for (int i = 0; i < totalApostadoresBanco; i++) {
             int count = 0;
             int palpites[] = bancoApostadores[i].getPalpites();
@@ -374,8 +488,8 @@ public class Loteca {
         int count1 = 0;
         int count2 = 0;
 
+        //
         for (int i = 0; i < totalApostadoresBanco; i++) {
-
             if (totalDeAcertoPlayer[i] == 9) {
                 //JOptionPane.showMessageDialog(null, "!! ACERTOU TUDO !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "10 ACERTOS", JOptionPane.QUESTION_MESSAGE);
                 count1++;
@@ -416,6 +530,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarAcertos() {
+        //Guarda no vetor palpites as apostas dos jogadores.
         for (int i = 0; i < totalApostadoresBanco; i++) {
             int count = 0;
             int palpites[] = bancoApostadores[i].getPalpites();
@@ -426,7 +541,7 @@ public class Loteca {
             }
             totalDeAcertoPlayer[i] = count;
         }
-
+        // Mostra quantos acertos os apostadores tiveram.
         for (int i = 0; i < totalApostadoresBanco; i++) {
             JOptionPane.showMessageDialog(null, "Jogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "Resultado", JOptionPane.QUESTION_MESSAGE);
         }
@@ -439,6 +554,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarJogosZerados() {
+        //Pega a quantidade de acertos de cada apostador.
         for (int i = 0; i < totalApostadoresBanco; i++) {
             int count = 0;
             int palpites[] = bancoApostadores[i].getPalpites();
@@ -450,6 +566,7 @@ public class Loteca {
             totalDeAcertoPlayer[i] = count;
         }
         int count = 0;
+        //Apresenta os jogadores que zeraram.
         for (int i = 0; i < totalApostadoresBanco; i++) {
 
             if (totalDeAcertoPlayer[i] == 0) {
@@ -457,6 +574,7 @@ public class Loteca {
                 count++;
             }
         }
+        //Apresenta uma caixa de texto, se nenhum jogador zerar.
         if (count == 0) {
             JOptionPane.showMessageDialog(null, "Nenhum Jogador Zerou!", "Nínguem Zerou!", JOptionPane.QUESTION_MESSAGE);
         }
@@ -469,6 +587,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarGanhadores10Acertos() {
+        //Pega a quantidade de acertos de cada apostador.
         for (int i = 0; i < totalApostadoresBanco; i++) {
             int count = 0;
             int palpites[] = bancoApostadores[i].getPalpites();
@@ -481,14 +600,18 @@ public class Loteca {
         }
 
         int count = 0;
-
+        
+        
+        /* Pecorre o vetor Total totalApostadoresBanco e compara os resultados 
+        utilizando o vetor totalDeAcertoPlayer, ambos utilziando a variavel/contador i
+         */
         for (int i = 0; i < totalApostadoresBanco; i++) {
-
             if (totalDeAcertoPlayer[i] == 10) {
                 JOptionPane.showMessageDialog(null, "!! ACERTOU TUDO !! \nJogador: " + bancoApostadores[i].getNome() + "\nAcertou: " + totalDeAcertoPlayer[i], "10 ACERTOS", JOptionPane.QUESTION_MESSAGE);
                 count++;
             }
         }
+        //verifica se todos o jogadores não acertaram 10;
         if (count == 0) {
             JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 10 Acertos!", "Nínguem Acertou 10!", JOptionPane.QUESTION_MESSAGE);
         }
@@ -501,6 +624,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarGanhadores9Acertos() {
+        //Pega os p
         for (int i = 0; i < totalApostadoresBanco; i++) {
             int count = 0;
             int palpites[] = bancoApostadores[i].getPalpites();
@@ -562,13 +686,16 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarPercentualTracoMarcante() {
+        //Matriz interna de traço marcante
         double[][] traco = new double[9][2];
         String msg = "";
 
+        //Preencher Primeira coluna com os códigos dos traços marcantes.
         for (int i = 0; i < 9; i++) {
             traco[i][0] = i;
         }
 
+        //Adicionar quantidade de pessoas com detemirnado traço na segunda coluna da matriz  "traco".
         for (int cont = 0; cont < totalApostadoresBanco; cont++) {
             switch (bancoApostadores[cont].tracoMarcantePersonalidade()) {
                 case 0:
@@ -601,6 +728,7 @@ public class Loteca {
             }
         }
 
+        //ordenar a matriz em ordem crescente.
         for (int k = 0; k < traco.length; k++) {
             for (int j = k; j < traco.length; j++) {
                 if (traco[k][1] > traco[j][1]) {
@@ -611,6 +739,7 @@ public class Loteca {
             }
         }
 
+        //armazenar a menssagem com os traços marcantes.
         for (int x = 0; x < 9; x++) {
             if (traco[x][0] == 0) {
                 msg = msg + "Irresistível: " + traco[x][1] + "%\n";
@@ -643,6 +772,7 @@ public class Loteca {
      * @return: nenhum valor de retorno. Funcionalidade: DESCREVER.
      */
     public static void apresentarTracoGanhadores10Acertos() {
+        //pegar as apostas do jogadores
         for (int i = 0; i < totalApostadoresBanco; i++) {
             int count = 0;
             int palpites[] = bancoApostadores[i].getPalpites();
@@ -656,59 +786,95 @@ public class Loteca {
 
         int count = 0;
         int soma;
+        int ganhadores10Acertos = 0;
+        //pegar quantidade de jogadores com 10 acertos
         for (int i = 0; i < totalApostadoresBanco; i++) {
             if (totalDeAcertoPlayer[i] == 10) {
-                count++;
-                soma = 0;
+                ganhadores10Acertos++;
+            }
+        }
 
-                String D = bancoApostadores[i].getDataDeNascimento().substring(0, 2);
-                String M = bancoApostadores[i].getDataDeNascimento().substring(3, 5);
-                String A = bancoApostadores[i].getDataDeNascimento().substring(6, 10);
-                String N = D + M + A;
+        //verificar se existe jogadores com 10 acertos
+        if (ganhadores10Acertos != 0) {
+            double[][] traco = new double[9][2];
+            String msg = "";
 
-                soma = soma + Integer.parseInt(String.valueOf(N.charAt(i - i))) + Integer.parseInt(String.valueOf(N.charAt((i - i) + 1)));
-                for (int j = 0; j < 6; j++) {
-                    soma = soma + Integer.parseInt(String.valueOf(N.charAt(j + 2)));
-                    if (soma >= 9) {
-                        soma = soma % 9;
-                    }
-                }
+            //Preencher Primeira coluna com os códigos dos traços marcantes.
+            for (int i = 0; i < 9; i++) {
+                traco[i][0] = i;
+            }
 
-                switch (soma) {
+            //Adicionar quantidade de pessoas com detemirnado traço na segunda coluna da matriz  "traco".
+            for (int cont = 0; cont < ganhadores10Acertos; cont++) {
+                switch (bancoApostadores[cont].tracoMarcantePersonalidade()) {
                     case 0:
-                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Irresistível", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        traco[0][1]++;
                         break;
                     case 1:
-                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Impetuoso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        traco[1][1]++;
                         break;
                     case 2:
-                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Discreto", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        traco[2][1]++;
                         break;
                     case 3:
-                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "\raço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        traco[3][1]++;
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Tímido", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        traco[4][1]++;
                         break;
                     case 5:
-                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Paquerador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        traco[5][1]++;
                         break;
                     case 6:
-                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Estudioso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        traco[6][1]++;
                         break;
                     case 7:
-                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Sonhador", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
+                        traco[7][1]++;
                         break;
                     case 8:
-                        JOptionPane.showMessageDialog(null, "Nome: " + bancoApostadores[i].getNome() + "\nData de Nascimento: " + bancoApostadores[i].getDataDeNascimento() + "\nTraço Marcante: Amoroso", "Traço Marcante: ", JOptionPane.INFORMATION_MESSAGE);
-                        break;
-                    default:
+                        traco[8][1]++;
                         break;
                 }
             }
+
+            //ordenar a matriz em ordem decrescente.
+            for (int k = 0; k < traco.length; k++) {
+                for (int j = k; j < traco.length; j++) {
+                    if (traco[k][1] < traco[j][1]) {
+                        double[] vetorTemporario = traco[k];
+                        traco[k] = traco[j];
+                        traco[j] = vetorTemporario;
+                    }
+                }
+            }
+
+            //armazenar a menssagem com os traços marcantes.
+            for (int x = 0; x < 9; x++) {
+                if (traco[x][0] == 0) {
+                    msg = msg + "Irresistível: " + traco[x][1] + "%\n";
+                } else if (traco[x][0] == 1) {
+                    msg = msg + "Impetuoso: " + traco[x][1] + "%\n";
+                } else if (traco[x][0] == 2) {
+                    msg = msg + "Discreto: " + traco[x][1] + "%\n";
+                } else if (traco[x][0] == 3) {
+                    msg = msg + "Amoroso: " + traco[x][1] + "%\n";
+                } else if (traco[x][0] == 4) {
+                    msg = msg + "Tímido: " + traco[x][1] + "%\n";
+                } else if (traco[x][0] == 5) {
+                    msg = msg + "Paquerador: " + traco[x][1] + "%\n";
+                } else if (traco[x][0] == 6) {
+                    msg = msg + "Estudioso: " + traco[x][1] + "%\n";
+                } else if (traco[x][0] == 7) {
+                    msg = msg + "Sonhador: " + traco[x][1] + "%\n";
+                } else if (traco[x][0] == 8) {
+                    msg = msg + "Charmoso: " + traco[x][1] + "%\n";
+                }
+            }
+            JOptionPane.showMessageDialog(null, msg);
         }
-        if (count == 0) {
-            JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 10 Acertos!", "Nínguem Acertou 9!", JOptionPane.QUESTION_MESSAGE);
+
+        if (ganhadores10Acertos == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum Jogador Obteve os 10 Acertos!", "Nínguem Acertou 10!", JOptionPane.QUESTION_MESSAGE);
         }
     }
 
@@ -746,7 +912,7 @@ public class Loteca {
                 = JOptionPane.showConfirmDialog(null, "Deseja realmente finalizar o sistema?",
                         "Finalizar Sistema",
                         JOptionPane.YES_NO_OPTION);
-        
+
         // Se resposta fornecida for igual a YES
         if (resposta == JOptionPane.YES_OPTION) {
             return TERMINA_SISTEMA;
@@ -854,7 +1020,10 @@ public class Loteca {
         JOptionPane.showMessageDialog(null,
                 "Obrigado por utilizar a Loteca Digital Simplificada!\n\n"
                 + "Desenvolvedor(es):\n"
-                + "NOMES + RGMs dos componentes do grupo em ordem alfabética.");
+                + "Carlos Ivan Uemura Rodrigues	RGM: 1947485-7\n"
+                + "Erik Coelho Gama RGM: 1947384-2\n"
+                + "Michael Douglas RGM: 1908513-3\n"
+                + "Igor George Alves RGM: 1948524-7");
         System.exit(0);
     }
 }
